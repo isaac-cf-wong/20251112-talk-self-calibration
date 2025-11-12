@@ -173,3 +173,49 @@
   border-radius: 4px;
   font-weight: bold;
 }
+
+/* Two-column layout for slides */
+
+.two-column {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1em;
+}
+
+.two-column ul {
+  flex: 1;
+  margin: 0;
+}
+
+.two-column figure {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.two-column figure img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.two-column figcaption {
+  font-size: 0.8rem;
+  margin-top: 0.5em;
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* Equations styling */
+
+.two-column .equations {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.2em;
+  text-align: center;
+  line-height: 1.5;
+}
