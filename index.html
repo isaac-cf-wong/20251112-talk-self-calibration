@@ -19,7 +19,11 @@
     <meta name="author" content="Your Name" />
 
     <!-- Favicon (early for quick load) -->
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://github.com/favicon.ico"
+    />
 
     <!-- Critical CSS (reveal.js core) -->
     <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css" />
@@ -52,6 +56,12 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css" />
+
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
 
   <body>
@@ -59,13 +69,97 @@
       <div class="slides">
         <!-- Title Slide -->
         <section>
-          <h3>
-            Bayesian Calibration of Gravitational-Wave Detectors Using Null
-            Streams Without Waveform Assumptions
-          </h3>
+          <div class="logos">
+            <img
+              src="images/leuven_gravity_institute.png"
+              alt="Leuven Gravity Institute"
+            />
+            <img src="images/stadius_b_bg.png" alt="Stadius" />
+            <img src="images/utrecht_university.png" alt="Utrecht University" />
+            <img src="images/nikhef_logo.png" alt="NIKHEF" />
+          </div>
+          <h4
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <span>
+              Bayesian Calibration of Gravitational-Wave Detectors Using Null
+              Streams Without Waveform Assumptions
+              <a
+                href="https://isaac-cf-wong.github.io/20251112-talk-self-calibration"
+                target="_blank"
+                style="color: inherit; text-decoration: none; font-size: 1em"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <br />
+              <small
+                ><a href="https://arxiv.org/abs/2510.06327"
+                  >2510.06327</a
+                ></small
+              >
+            </span>
+          </h4>
           <p>
-            <small><span>Isaac C. F. Wong</span></small>
+            <small
+              ><span
+                ><a
+                  href="https://orcid.org/0000-0003-2166-0027"
+                  class="orcid-link"
+                  >Isaac C. F. Wong</a
+                ></span
+              ></small
+            >
           </p>
+          <div class="collaborators">
+            <p>
+              Collaborators:
+              <a href="https://orcid.org/0009-0002-7074-4278" class="orcid-link"
+                >Francesco Cireddu</a
+              >,
+              <a href="https://orcid.org/0000-0002-1544-7193" class="orcid-link"
+                >Milan Wils</a
+              >,
+              <a href="https://orcid.org/0009-0003-4408-5894" class="orcid-link"
+                >Tom Colemont</a
+              >,
+              <a href="https://orcid.org/0000-0001-9161-7919" class="orcid-link"
+                >Harsh Narola</a
+              >,
+              <a href="https://orcid.org/0000-0001-6800-4006" class="orcid-link"
+                >Chris Van Den Broeck</a
+              >,
+              <a href="https://orcid.org/0000-0003-4297-7365" class="orcid-link"
+                >Tjonnie G. F. Li</a
+              >
+            </p>
+          </div>
+
+          <!-- QR Code for arXiv paper -->
+          <div
+            style="position: absolute; bottom: 80px; right: 20px; z-index: 10"
+          >
+            <a
+              href="https://arxiv.org/abs/2510.06327"
+              target="_blank"
+              style="text-decoration: none"
+            >
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://arxiv.org/abs/2510.06327"
+                alt="QR Code for arXiv paper"
+                style="
+                  width: 120px;
+                  height: 120px;
+                  border: 2px solid #fff;
+                  border-radius: 5px;
+                "
+              />
+            </a>
+          </div>
+
           <aside class="notes">
             <ul>
               <li>10 seconds</li>
@@ -73,11 +167,10 @@
           </aside>
         </section>
 
-        <!-- About Section -->
         <section>
           <section>
             <h3>Motivation and ET Context</h3>
-            <div class="two-column" style="font-size: 1.8rem">
+            <div class="two-column" style="font-size: 1.6rem">
               <ul>
                 <li>
                   GW detections transform astrophysics, but calibration errors
@@ -85,12 +178,21 @@
                   Hz)
                 </li>
                 <li>
-                  ET Challenge: 10x sensitivity demands <1% calibration for
-                  low-freq (3-10 Hz) science (IMBHB, NS-NS)
+                  ET Challenge: 10x sensitivity demands $\lesssim 1\%$
+                  calibration for, e.g., signal detection, parameter estimation
+                  (<a href="https://arxiv.org/abs/2202.00823">Essick 2022</a>),
+                  Hubble constant measurements (<a
+                    href="https://arxiv.org/abs/2204.03614"
+                    >Huang et al. 2025</a
+                  >), black hole spectroscopy (<a
+                    href="https://arxiv.org/abs/2506.15979"
+                    >Sinha et al. 2025</a
+                  >)
                 </li>
                 <li>
-                  This Work: Sky-independent null streams enable non-invasive,
-                  waveform/GR-independent calibration using all GW signals
+                  <b>This Work</b>: Sky-independent null streams enable
+                  non-invasive, waveform/GR-independent calibration using all GW
+                  signals
                 </li>
               </ul>
               <figure>
@@ -110,7 +212,66 @@
             </aside>
           </section>
 
-          <section>
+          <section data-auto-animate>
+            <h3>Current LVK Calibration: Strain Reconstruction</h3>
+            <div class="two-column" style="font-size: 1.4rem">
+              <ul>
+                <li>
+                  <strong>Photon Calibration:</strong> Primary absolute
+                  calibration method in LVK detectors
+                </li>
+                <li>
+                  <strong>Principle:</strong> Inject known changes in laser
+                  power ($\Delta P$) into the interferometer arms
+                </li>
+                <li>
+                  <strong>Measurement:</strong> Measure the corresponding change
+                  in interferometer output ($\Delta d$)
+                </li>
+                <li>
+                  <strong>Calibration Factor:</strong> $C(f) = \frac{\Delta
+                  d(f)}{\Delta P(f)}$ relates power to strain via radiation
+                  pressure
+                </li>
+                <li>
+                  <strong>Absolute Reference:</strong> Provides direct
+                  connection between measured signal and gravitational strain
+                  $h(t)$
+                </li>
+                <li>
+                  <strong>Frequency Range:</strong> Valid across the full
+                  detection band (10 Hz - few kHz)
+                </li>
+              </ul>
+              <figure>
+                <img
+                  src="images/calibration-schematic.png"
+                  alt="LVK Calibration Schematic"
+                />
+                <figcaption style="font-size: 1.4rem">
+                  <a href="https://arxiv.org/abs/2005.02531">Sun et al. 2020</a>
+                </figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h3>Current LVK Calibration: Strain Reconstruction</h3>
+            <figure>
+              <img
+                src="images/O3b-calibration-error.png"
+                alt="LVK Calibration Error Plot"
+              />
+              <figcaption style="font-size: 1.4rem">
+                Calibration error of LIGO Hanford in O3b (<a
+                  href="https://arxiv.org/abs/2107.00129"
+                  >Sun et al. 2021</a
+                >)
+              </figcaption>
+            </figure>
+          </section>
+
+          <section data-auto-animate>
             <h3>Background: Null Streams in Triangular Detectors</h3>
             <div class="two-column" style="font-size: 1.6rem">
               <ul>
@@ -123,7 +284,10 @@
                   (e.g.,
                   <a href="https://arxiv.org/abs/2009.10212"
                     >Schutz et al. 2020</a
-                  >); invasive or EM-counterpart dependent
+                  >); EM-counterpart and GR dependent (<a
+                    href="https://arxiv.org/abs/1511.02758"
+                    >Pitkin et al. 2016</a
+                  >)
                 </li>
                 <li>
                   Gap: No method uses arbitrary GWs for calibration without
@@ -148,7 +312,7 @@
         </section>
 
         <section>
-          <section>
+          <section data-auto-animate>
             <h3>Methods Overview</h3>
             <div class="two-column" style="font-size: 1.5rem">
               <ul>
@@ -175,6 +339,30 @@
             </div>
           </section>
 
+          <section data-auto-animate>
+            <h3>Methods Overview</h3>
+            <div class="two-column" style="font-size: 1.5rem">
+              <ul>
+                <li>Approach: Bayesian inference on null stream data</li>
+                <li>
+                  Key: Projection matrix $P_\mathrm{null}$ that cancels GW $h$
+                </li>
+                <li>
+                  Parameters $\theta$: Cubic splines for amp/phase errors (10
+                  knots); priors from LIGO (~10% amp, 3° phase)
+                </li>
+                <li>
+                  Likelihood: Time-freq Gaussian on wavelet transform of null
+                  stream (ortho. wavelets for stationarity)
+                </li>
+              </ul>
+              <figure>
+                <img src="images/null_stream_demo.png" />
+                <figcaption>Credit: Peter T. H. Pang</figcaption>
+              </figure>
+            </div>
+          </section>
+
           <section>
             <h3>Implementation and Simulation Setup</h3>
             <div class="two-column" style="font-size: 1.5rem">
@@ -188,8 +376,9 @@
                   M_{\odot}$, SNR 20-300); ET-D noise PSD; multi-signal overlaps
                 </li>
                 <li>
-                  Metric: Generalized std. dev. (GSD) ratio (posterior/prior)
-                  for constraint tightness
+                  Metric: Generalized std. dev. (GSD) defined as $\bar{\sigma} =
+                  \det(\boldsymbol{\Sigma}_{\theta})^{1/2N}$ ratio
+                  (posterior/prior) for constraint tightness
                 </li>
                 <li>
                   Validation: Recovers injected errors within 90% credible
@@ -379,14 +568,6 @@
                   Multiple Overlaps: Ratio drops to 0.65 (3 signals); posteriors
                   converge to truth
                 </li>
-                <li>
-                  Example: 32 Hz posteriors for rel. amp/phase ($1 + \delta
-                  A_{j}$, $\delta \varphi_{j}$) tighten with number of signals
-                </li>
-                <li>
-                  ET Relevance: Dense signal environment (100s/yr) naturally
-                  breaks degeneracy; handles backgrounds
-                </li>
               </ul>
               <figure>
                 <img
@@ -412,8 +593,8 @@
                   A_{j}$, $\delta \varphi_{j}$) tighten with number of signals
                 </li>
                 <li>
-                  ET Relevance: Dense signal environment (100s/yr) naturally
-                  breaks degeneracy; handles backgrounds
+                  ET Relevance: Dense signal environment naturally breaks
+                  degeneracy
                 </li>
               </ul>
               <figure>
@@ -440,8 +621,8 @@
                   A_{j}$, $\delta \varphi_{j}$) tighten with number of signals
                 </li>
                 <li>
-                  ET Relevance: Dense signal environment (100s/yr) naturally
-                  breaks degeneracy; handles backgrounds
+                  ET Relevance: Dense signal environment naturally breaks
+                  degeneracy
                 </li>
               </ul>
               <figure>
@@ -502,8 +683,8 @@
                   for ET); assumes Gaussian noise
                 </li>
                 <li>
-                  ET Synergies: Complements Sagnac/in-situ methods; test in ET
-                  Mock Data Challenges
+                  ET Synergies: Complements in-situ methods; test in ET Mock
+                  Data Challenges
                 </li>
                 <li>
                   Broader: LISA (space nulls). Long-wavelength approx. valid
@@ -543,14 +724,27 @@
         <section>
           <h1>Thank You!</h1>
           <h3>Questions?</h3>
-          <p>
-            <small>
-              <a
-                href="https://github.com/isaac-cf-wong/20251112-talk-self-calibration"
-                >GitHub Repository</a
-              >
-            </small>
-          </p>
+          <div style="font-size: 1.8rem">
+            <ul>
+              <li>
+                <a href="https://arxiv.org/abs/2510.06327">Preprint</a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/isaac-cf-wong/20251112-talk-self-calibration"
+                  >Presentation Slides</a
+                >
+                <i class="fab fa-github" style="margin-left: 0.5rem"></i>
+              </li>
+              <li>
+                <a href="https://github.com/isaac-cf-wong/nullcal"
+                  ><code>nullcal</code></a
+                >
+                <i class="fab fa-github" style="margin-left: 0.5rem"></i> (will
+                be public after the paper is accepted)
+              </li>
+            </ul>
+          </div>
           <aside class="notes">
             This is the final slide. Thank your audience and open the floor for
             questions. Remember to provide links to resources for follow-up.
