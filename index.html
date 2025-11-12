@@ -8,7 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
 
-    <title>Presentation Template</title>
+    <title>
+      Bayesian Calibration of Gravitational-Wave Detectors Using Null Streams
+      Without Waveform Assumptions
+    </title>
     <meta
       name="description"
       content="A modern presentation built with reveal.js"
@@ -55,184 +58,497 @@
     <div class="reveal">
       <div class="slides">
         <!-- Title Slide -->
-        <section
-          data-background-gradient="linear-gradient(to bottom, #283048, #859398)"
-        >
-          <h1>Presentation Template</h1>
-          <h3>Built with reveal.js</h3>
+        <section>
+          <h3>
+            Bayesian Calibration of Gravitational-Wave Detectors Using Null
+            Streams Without Waveform Assumptions
+          </h3>
           <p>
-            <small>Created by <span>Your Name</span></small>
+            <small><span>Isaac C. F. Wong</span></small>
           </p>
           <aside class="notes">
-            Welcome to your presentation template. This is the title slide. You
-            can add speaker notes here that won't be visible to the audience.
+            <ul>
+              <li>10 seconds</li>
+            </ul>
           </aside>
         </section>
 
         <!-- About Section -->
         <section>
-          <h2>About This Template</h2>
-          <ul>
-            <li class="fragment">🎯 Modern and responsive design</li>
-            <li class="fragment">📱 Works on desktop, tablet, and mobile</li>
-            <li class="fragment">🎨 Multiple themes available</li>
-            <li class="fragment">📝 Markdown support</li>
-            <li class="fragment">🖼️ Rich media support</li>
-          </ul>
-          <aside class="notes">
-            This slide demonstrates fragment animations. Each bullet point will
-            appear one by one when you advance.
-          </aside>
-        </section>
-
-        <!-- Features Section -->
-        <section>
           <section>
-            <h2>Features</h2>
-            <p>Explore the capabilities of this template</p>
-            <p><small>↓ Navigate down to see more</small></p>
-          </section>
-
-          <section>
-            <h3>Code Highlighting</h3>
-            <pre><code data-trim data-noescape>
-function createPresentation() {
-    const slides = [
-        'Introduction',
-        'Content',
-        'Conclusion'
-    ];
-
-    return slides.map(slide => ({
-        title: slide,
-        content: 'Amazing content here!'
-    }));
-}
-                    </code></pre>
-          </section>
-
-          <section>
-            <h3>Math Support</h3>
-            <p>You can include mathematical equations:</p>
-            <p>$$E = mc^2$$</p>
-            <p>$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$</p>
-          </section>
-
-          <section>
-            <h3>Media Support</h3>
-            <div
-              style="
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-              "
-            >
-              <div>
-                <h4>Images</h4>
+            <h3>Motivation and ET Context</h3>
+            <div class="two-column" style="font-size: 1.8rem">
+              <ul>
+                <li>
+                  GW detections transform astrophysics, but calibration errors
+                  limit precision (e.g., LIGO: ~10% amplitude, ~3° phase at 100
+                  Hz)
+                </li>
+                <li>
+                  ET Challenge: 10x sensitivity demands <1% calibration for
+                  low-freq (3-10 Hz) science (IMBHB, NS-NS)
+                </li>
+                <li>
+                  This Work: Sky-independent null streams enable non-invasive,
+                  waveform/GR-independent calibration using all GW signals
+                </li>
+              </ul>
+              <figure>
                 <img
-                  src="images/sample-image.jpg"
-                  alt="Sample"
-                  style="
-                    width: 200px;
-                    height: 150px;
-                    object-fit: cover;
-                    border-radius: 8px;
-                  "
+                  src="images/indistinguishability_10_vs_currect_waveform_accuracy_calibration_error_0308_short_n_nowh.png"
                 />
-              </div>
-              <div>
-                <h4>Videos</h4>
-                <video
-                  width="200"
-                  height="150"
-                  controls
-                  style="border-radius: 8px"
-                >
-                  <source src="videos/sample-video.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
+                <figcaption>
+                  <a href="https://arxiv.org/abs/1912.10055"
+                    >Pürrer et al. 2019</a
+                  >
+                </figcaption>
+              </figure>
+            </div>
+            <aside class="notes">
+              This slide demonstrates fragment animations. Each bullet point
+              will appear one by one when you advance.
+            </aside>
+          </section>
+
+          <section>
+            <h3>Background: Null Streams in Triangular Detectors</h3>
+            <div class="two-column" style="font-size: 1.6rem">
+              <ul>
+                <li>
+                  ET Geometry: 3 co-located 10-km arms underground;
+                  long-wavelength approx. enables sky-independent null streams
+                </li>
+                <li>
+                  Prior Self-Calibration: Sagnac nulls require templates/GR
+                  (e.g.,
+                  <a href="https://arxiv.org/abs/2009.10212"
+                    >Schutz et al. 2020</a
+                  >); invasive or EM-counterpart dependent
+                </li>
+                <li>
+                  Gap: No method uses arbitrary GWs for calibration without
+                  assumptions
+                </li>
+                <li>
+                  Assumption: Focus on relative errors (absolute via
+                  instrumental priors); 8-512 Hz band
+                </li>
+              </ul>
+              <figure>
+                <img src="images/einstine_telescope_triangular_layout.jpg" />
+                <figcaption>
+                  <a
+                    href="https://www.einsteintelescope-emr.eu/wp-content/uploads/2024/05/E-TEST_Conceptual-Design-Report_June_2022-reduced_size.pdf"
+                    >E-TEST Prototype</a
+                  >
+                </figcaption>
+              </figure>
             </div>
           </section>
         </section>
 
-        <!-- Markdown Example -->
-        <section data-markdown>
-          <textarea data-template>
-                    ## Markdown Support
+        <section>
+          <section>
+            <h3>Methods Overview</h3>
+            <div class="two-column" style="font-size: 1.5rem">
+              <ul>
+                <li>Approach: Bayesian inference on null stream data</li>
+                <li>
+                  Key: Projection matrix $P_\mathrm{null}$ that cancels GW $h$
+                </li>
+                <li>
+                  Parameters $\theta$: Cubic splines for amp/phase errors (10
+                  knots); priors from LIGO (~10% amp, 3° phase)
+                </li>
+                <li>
+                  Likelihood: Time-freq Gaussian on wavelet transform of null
+                  stream (ortho. wavelets for stationarity)
+                </li>
+              </ul>
+              <div class="equations" style="font-size: 1.4rem">
+                $d_\mathrm{null} = P_\mathrm{null}(C(f)\tilde{h}(f) +
+                \tilde{n}(f))$<br />
+                $\begin{aligned}&P_\mathrm{null}(f; \theta) \\ &= I - W(f)
+                (W^{\dagger}(f)W(f))^{-1}W^{\dagger}(f) \end{aligned}$<br />
+                $W(f) = S_n^{-1/2}(f) C(f;\theta) F$
+              </div>
+            </div>
+          </section>
 
-                    You can write slides in **Markdown**!
-
-                    - Simple and clean syntax
-                    - Easy to maintain
-                    - Version control friendly
-
-                    > "Simplicity is the ultimate sophistication." - Leonardo da Vinci
-
-                    ### Code blocks work too:
-                    ```javascript
-                    const awesome = true;
-                    console.log('This template is', awesome ? 'amazing!' : 'okay');
-                    ```
-                </textarea
-          >
+          <section>
+            <h3>Implementation and Simulation Setup</h3>
+            <div class="two-column" style="font-size: 1.5rem">
+              <ul>
+                <li>
+                  Tools: <code>nullcal</code> package; <code>Bilby</code> for
+                  inference, <code>dynesty</code> sampler ($10^3$ live points)
+                </li>
+                <li>
+                  Injections: BBH ($m_{1}=35.6 M_{\odot}$, $m_{2}=30.6
+                  M_{\odot}$, SNR 20-300); ET-D noise PSD; multi-signal overlaps
+                </li>
+                <li>
+                  Metric: Generalized std. dev. (GSD) ratio (posterior/prior)
+                  for constraint tightness
+                </li>
+                <li>
+                  Validation: Recovers injected errors within 90% credible
+                  intervals
+                </li>
+              </ul>
+              <figure>
+                <svg
+                  width="400"
+                  height="350"
+                  viewBox="0 0 400 350"
+                  style="width: 100%; height: auto"
+                >
+                  <defs>
+                    <marker
+                      id="arrowhead"
+                      markerWidth="10"
+                      markerHeight="7"
+                      refX="9"
+                      refY="3.5"
+                      orient="auto"
+                    >
+                      <polygon points="0 0, 10 3.5, 0 7" fill="white" />
+                    </marker>
+                  </defs>
+                  <!-- Data -->
+                  <rect
+                    x="120"
+                    y="10"
+                    width="160"
+                    height="50"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                    rx="5"
+                  />
+                  <text
+                    x="200"
+                    y="40"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="20"
+                  >
+                    Data
+                  </text>
+                  <!-- Arrow to Wavelet TF -->
+                  <line
+                    x1="200"
+                    y1="60"
+                    x2="200"
+                    y2="90"
+                    stroke="white"
+                    stroke-width="2"
+                    marker-end="url(#arrowhead)"
+                  />
+                  <!-- Wavelet TF -->
+                  <rect
+                    x="120"
+                    y="100"
+                    width="160"
+                    height="50"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                    rx="5"
+                  />
+                  <text
+                    x="200"
+                    y="130"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="20"
+                  >
+                    Wavelet TF
+                  </text>
+                  <!-- Arrow to Likelihood -->
+                  <line
+                    x1="200"
+                    y1="150"
+                    x2="200"
+                    y2="180"
+                    stroke="white"
+                    stroke-width="2"
+                    marker-end="url(#arrowhead)"
+                  />
+                  <!-- Likelihood -->
+                  <rect
+                    x="120"
+                    y="190"
+                    width="160"
+                    height="50"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                    rx="5"
+                  />
+                  <text
+                    x="200"
+                    y="220"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="20"
+                  >
+                    Likelihood
+                  </text>
+                  <!-- Arrow to Posterior -->
+                  <line
+                    x1="200"
+                    y1="240"
+                    x2="200"
+                    y2="270"
+                    stroke="white"
+                    stroke-width="2"
+                    marker-end="url(#arrowhead)"
+                  />
+                  <!-- Posterior on θ -->
+                  <rect
+                    x="100"
+                    y="280"
+                    width="200"
+                    height="50"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                    rx="5"
+                  />
+                  <text
+                    x="200"
+                    y="310"
+                    text-anchor="middle"
+                    fill="white"
+                    font-size="20"
+                  >
+                    Posterior on θ
+                  </text>
+                </svg>
+                <figcaption style="font-size: 1.4rem">
+                  Inference Flowchart
+                </figcaption>
+              </figure>
+            </div>
+          </section>
         </section>
 
-        <!-- Themes Section -->
         <section>
-          <h2>Available Themes</h2>
-          <p>Switch between different themes by changing the CSS link:</p>
-          <div
-            style="
-              display: grid;
-              grid-template-columns: repeat(3, 1fr);
-              gap: 1rem;
-              font-size: 0.8em;
-            "
-          >
-            <div>• black (current)</div>
-            <div>• white</div>
-            <div>• league</div>
-            <div>• beige</div>
-            <div>• sky</div>
-            <div>• night</div>
-            <div>• serif</div>
-            <div>• simple</div>
-            <div>• solarized</div>
-          </div>
-          <p>
-            <small
-              >Edit the theme link in index.html to change appearance</small
-            >
-          </p>
+          <section>
+            <h3>Results: SNR Dependence</h3>
+            <div class="two-column" style="font-size: 1.5rem">
+              <ul>
+                <li>
+                  Finding: Calibration constraints tighten linearly with network
+                  SNR (20-300)
+                </li>
+                <li>
+                  Null Stream SNR: ~10% of network SNR; drives precision (e.g.,
+                  17.6% improvement at high SNR)
+                </li>
+                <li>
+                  Implication: Bright events (e.g., nearby BBH) yield immediate
+                  calibration gains for ET
+                </li>
+              </ul>
+              <figure>
+                <img
+                  src="images/average_standard_deviation_vs_network_snr_total.png"
+                  alt="SNR Dependence Plot"
+                />
+                <figcaption>
+                  FIG. 1 in
+                  <a href="https://arxiv.org/abs/2510.06327"
+                    >Wong et al. 2025</a
+                  >
+                </figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h3>Results: Multi-Signal Degeneracy Breaking</h3>
+            <div class="two-column" style="font-size: 1.5rem">
+              <ul>
+                <li>
+                  Single Signal: Polarization degeneracy limits (GSD ratio ~0.82
+                  at SNR=26)
+                </li>
+                <li>
+                  Multiple Overlaps: Ratio drops to 0.65 (3 signals); posteriors
+                  converge to truth
+                </li>
+                <li>
+                  Example: 32 Hz posteriors for rel. amp/phase ($1 + \delta
+                  A_{j}$, $\delta \varphi_{j}$) tighten with number of signals
+                </li>
+                <li>
+                  ET Relevance: Dense signal environment (100s/yr) naturally
+                  breaks degeneracy; handles backgrounds
+                </li>
+              </ul>
+              <figure>
+                <img
+                  src="images/average_standard_deviation_vs_number_of_signals_total.png"
+                  alt="Multi-Signal Dependence Plot"
+                />
+                <figcaption>
+                  FIG. 2 in
+                  <a href="https://arxiv.org/abs/2510.06327"
+                    >Wong et al. 2025</a
+                  >
+                </figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h3>Results: Multi-Signal Degeneracy Breaking</h3>
+            <div class="two-column" style="font-size: 1.5rem">
+              <ul>
+                <li>
+                  Example: 32 Hz posteriors for rel. amp/phase ($1 + \delta
+                  A_{j}$, $\delta \varphi_{j}$) tighten with number of signals
+                </li>
+                <li>
+                  ET Relevance: Dense signal environment (100s/yr) naturally
+                  breaks degeneracy; handles backgrounds
+                </li>
+              </ul>
+              <figure>
+                <img
+                  src="images/corner_relative_calibration_ET2_ET1_32_Hz.png"
+                  alt="Multi-Signal Dependence Plot"
+                />
+                <figcaption>
+                  FIG. 3 in
+                  <a href="https://arxiv.org/abs/2510.06327"
+                    >Wong et al. 2025</a
+                  >
+                </figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h3>Results: Multi-Signal Degeneracy Breaking</h3>
+            <div class="two-column" style="font-size: 1.5rem">
+              <ul>
+                <li>
+                  Example: 32 Hz posteriors for rel. amp/phase ($1 + \delta
+                  A_{j}$, $\delta \varphi_{j}$) tighten with number of signals
+                </li>
+                <li>
+                  ET Relevance: Dense signal environment (100s/yr) naturally
+                  breaks degeneracy; handles backgrounds
+                </li>
+              </ul>
+              <figure>
+                <img
+                  src="images/corner_relative_calibration_ET3_ET1_32_Hz.png"
+                  alt="Multi-Signal Dependence Plot"
+                />
+                <figcaption>
+                  FIG. 3 in
+                  <a href="https://arxiv.org/abs/2510.06327"
+                    >Wong et al. 2025</a
+                  >
+                </figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h3>Results: The Three-Signal Case with SNR 300</h3>
+            <figure style="text-align: center">
+              <img
+                src="images/calibration_envelope_ET2_ET1_3_signals.png"
+                alt="Three-Signal High SNR Plot"
+                style="max-width: 90%; height: auto"
+              />
+              <figcaption style="font-size: 1.4rem">
+                FIG. S2 in
+                <a href="https://arxiv.org/abs/2510.06327">Wong et al. 2025</a>
+              </figcaption>
+            </figure>
+          </section>
+
+          <section data-auto-animate>
+            <h3>Results: The Three-Signal Case with SNR 300</h3>
+            <figure style="text-align: center">
+              <img
+                src="images/calibration_envelope_ET3_ET1_3_signals.png"
+                alt="Three-Signal High SNR Plot"
+                style="max-width: 90%; height: auto"
+              />
+              <figcaption style="font-size: 1.4rem">
+                FIG. S2 in
+                <a href="https://arxiv.org/abs/2510.06327">Wong et al. 2025</a>
+              </figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h3>Discussion: Degeneracies and ET Integration</h3>
+            <div class="two-column">
+              <ul style="font-size: 1.5rem; line-height: 1.6">
+                <li>
+                  Degeneracies: Common-mode absolute error (fix w/ lab priors);
+                  polarization (broken by multi-events)
+                </li>
+                <li>
+                  Limitations: Long-wavelength approx. (valid $\lesssim 1000$ Hz
+                  for ET); assumes Gaussian noise
+                </li>
+                <li>
+                  ET Synergies: Complements Sagnac/in-situ methods; test in ET
+                  Mock Data Challenges
+                </li>
+                <li>
+                  Broader: LISA (space nulls). Long-wavelength approx. valid
+                  $\lesssim 1$ mHz
+                </li>
+              </ul>
+              <figure>
+                <img src="images/lisa-image-1050x550.jpg.webp" />
+                <figcaption>
+                  <a
+                    href="https://www.einsteintelescope-emr.eu/en/2023/05/08/dutch-fund-for-large-scale-research-infrastructure-supports-lisa-and-einstein-telescope/"
+                    >The Space Project LISA</a
+                  >
+                </figcaption>
+              </figure>
+            </div>
+          </section>
         </section>
 
-        <!-- Getting Started -->
         <section>
-          <h2>Getting Started</h2>
-          <ol>
-            <li>Clone or use this template repository</li>
-            <li>Run <code>npm install</code> to install dependencies</li>
-            <li>Start development server with <code>npm start</code></li>
-            <li>Edit <code>index.html</code> to create your presentation</li>
-            <li>Customize styles in <code>css/custom.css</code></li>
-          </ol>
-          <p><small>Check the README for detailed instructions</small></p>
+          <h3>Conclusions and Outlook</h3>
+
+          <ul style="font-size: 1.5rem; line-height: 1.6">
+            <li>
+              Summary: GR/waveform-independent Bayesian null-stream calibration;
+              17.6% precision gain in ET sims
+            </li>
+            <li>
+              Key Advance: Uses all GWs (incl. backgrounds) for non-invasive
+              error constraints
+            </li>
+            <li>Next: Apply to ET MDC; Implication on science goals</li>
+          </ul>
         </section>
 
         <!-- Thank You -->
-        <section
-          data-background-gradient="linear-gradient(to bottom, #134E5E, #71B280)"
-        >
+        <section>
           <h1>Thank You!</h1>
           <h3>Questions?</h3>
           <p>
             <small>
-              <a href="https://github.com/isaac-cf-wong/presentation-template"
+              <a
+                href="https://github.com/isaac-cf-wong/20251112-talk-self-calibration"
                 >GitHub Repository</a
               >
-              |
-              <a href="https://revealjs.com/">Reveal.js Documentation</a>
             </small>
           </p>
           <aside class="notes">
